@@ -2,7 +2,7 @@
 Read csv of exported marketflow risk margin report and output it as yml
 
 # Installation: linux
-Use [pew](https://github.com/berdario/pew)
+Using [pew](https://github.com/berdario/pew)
 ```bash
 sudo apt install python-pip
 pip install pew
@@ -11,18 +11,10 @@ pew new -d -r requirements.txt ENV
 ```
 
 #Usage
-
-## converter
 ```bash
-pew in ENV python3 convert/convert.py
+pew in ENV python3 convert/convert.py test/standard.csv
 ```
-This would read `convert/newrisk.csv` and write it as `convert/newrisk.yml`
-
-## compare
-```bash
-php compare/compare.php
-```
-This would compare `compare/actual.yml` with `compare/expected.yml`
+This would output the data to the console as yml
 
 # Testing
 ```bash
