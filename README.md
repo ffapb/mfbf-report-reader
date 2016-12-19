@@ -23,3 +23,9 @@ This would read `convert/newrisk.csv` and write it as `convert/newrisk.yml`
 php compare/compare.php
 ```
 This would compare `compare/actual.yml` with `compare/expected.yml`
+
+# Testing
+```bash
+pew workon ENV
+python TestParser.py
+```
