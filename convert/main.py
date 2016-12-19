@@ -3,8 +3,8 @@ from Parser import Parser
 
 def showHelp():
   print("Usage:")
-  print("  python "+sys.argv[0] + ' filename.csv --format=standard')
-  print("  python "+sys.argv[0] + ' filename.csv --format=detailed')
+  print("  python "+sys.argv[0] + ' filename.csv --format=yaml')
+  print("  python "+sys.argv[0] + ' filename.csv --format=json')
 
 if __name__ == '__main__':
   if len(sys.argv) < 2:
@@ -25,31 +25,27 @@ if __name__ == '__main__':
       showHelp()
       sys.exit()
     elif opt in ("-f","--format"):
-      if(not arg in ['standard','detailed']):
+      if(not arg in ['yaml','json']):
         showHelp()
         sys.exit()
-
       fileFormat=arg
     else:
       showHelp()
       sys.exit()
 
   if fileFormat is None:
-    showHelp()
-    sys.exit()
+    fileFormat='yaml'
 
   with open(filename) as stream:
     prs = Parser()
-    if fileFormat=='standard':
-        data = prs.standard(stream)
-    elif fileFormat=='detailed':
-        data = prs.detailed(stream)
+    data = prs.parse(stream)
 
     #print(data)
-    #print(json.dumps(data, indent=4, sort_keys=True))
-    print(yaml.dump(data, default_flow_style=False))
 
-      #with open('accounts.yml', 'w') as outfile:
-      #    yaml.dump(data, outfile, default_flow_style=False)
+    if fileFormat=='json':
+      print(json.dumps(data, indent=4, sort_keys=True))
+    elif fileFormat=='yaml':
+      print(yaml.dump(data, default_flow_style=False))
 
-
+    #with open('accounts.yml', 'w') as outfile:
+    #    yaml.dump(data, outfile, default_flow_style=False)

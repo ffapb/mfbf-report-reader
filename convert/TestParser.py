@@ -7,23 +7,33 @@ ROOT=os.path.dirname(os.path.abspath(__file__))
 
 class TestParser(unittest.TestCase):
 
-  def doCommon(self,fn1,fn2):
-    expectedFn = os.path.join(ROOT,"test",fn1)
+  def doCommon(self, expectedFn, inputFn, expectedFormat):
+    expectedFn = os.path.join(ROOT,"test",expectedFn)
+    inputFn = os.path.join(ROOT,"test",inputFn)
 
-    with open(expectedFn, 'r') as stream:
-      expected = yaml.load(stream)
+    with open(expectedFn, 'r') as expectedStream:
+      expectedContent = yaml.load(expectedStream)
 
-      filename = os.path.join(ROOT,"test",fn2)
-      with open(filename) as fh:
+      with open(inputFn) as inputStream:
         prs = Parser()
-        return prs.standard(fh)
-        self.assertEquals(expected, prs.standard(fh))
+        actualFormat = prs._detect(inputStream)
+        self.assertEquals(expectedFormat,  actualFormat  )
+
+        actualContent = None
+        if expectedFormat=='standard':
+          actualContent = prs._standard(inputStream)
+        elif expectedFormat=='detailed':
+          actualContent = prs._detailed(inputStream)
+
+        self.assertEquals(expectedContent, actualContent)
+
+        self.assertEquals(expectedContent, prs.parse(inputStream))
 
   def testStandard(self):
-    self.doCommon('standard.yml','standard.csv')
+    self.doCommon('standard.yml', 'standard.csv', 'standard')
 
-  def testStandard(self):
-    self.doCommon('detailed.yml','detailed.csv')
+  def testDetailed(self):
+    self.doCommon('detailed.yml', 'detailed.csv', 'detailed')
 
 if __name__ == '__main__':
     unittest.main()

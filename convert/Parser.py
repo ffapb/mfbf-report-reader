@@ -2,36 +2,41 @@ import csv
 
 class Parser:
 
-  def s2r(self,stream):
+  def __s2r(self,stream):
     return csv.reader(stream,delimiter=',')
 
-  def standard(self, stream):
+  def _standard(self, stream):
+    stream.seek(0)
     data = {}
-    for row in self.s2r(stream):
+    for row in self.__s2r(stream):
       data[row[31]]={'initial':row[42],'maintenance':row[43]}
 
     return data
 
-  def detailed(self, stream):
-      data= {}
-      for row in self.s2r(stream):
-        if not row[30] in data:
-          data [row[30]]={}
-        data[row[30]][row[44]]={'initial':row[55],'maintenance':row[56]}
+  def _detailed(self, stream):
+    stream.seek(0)
+    data= {}
+    for row in self.__s2r(stream):
+      if not row[30] in data:
+        data [row[30]]={}
+      data[row[30]][row[44]]={'initial':row[55],'maintenance':row[56]}
 
-      return data
+    return data
 
+  def _detect(self,stream):
+    stream.seek(0)
+    for row in self.__s2r(stream):
+      if row[11]=='SC':
+        return 'standard'
+      elif row[11]=='OVL':
+        return 'detailed'
+      else:
+        return 'other'
 
-    def detect(self,stream):
-            for row in stream:
-                if row[11]=='SC':
-                    print ('the file is standard');
-                    return
-                elif row[11]=='OVL':
-                    print ('the file is detailed');
-                    return
-                else:
-                    print ('error file');
-                    return
+  def parse(self,stream):
+    fileFormat = self._detect(stream)
 
-
+    if fileFormat=='standard':
+      return self._standard(stream)
+    elif fileFormat=='detailed':
+      return self._detailed(stream)
