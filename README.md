@@ -1,4 +1,5 @@
 # mfbf-report-reader
+[![Build Status](https://travis-ci.org/shadiakiki1986/mfbf-report-reader.svg?branch=master)](https://travis-ci.org/shadiakiki1986/mfbf-report-reader)
 Read csv of exported marketflow risk margin report and output it as yml
 
 # Installation: linux
