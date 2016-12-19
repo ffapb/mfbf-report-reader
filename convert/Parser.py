@@ -20,3 +20,18 @@ class Parser:
         data[row[30]][row[44]]={'initial':row[55],'maintenance':row[56]}
 
       return data
+
+
+    def detect(self,stream):
+            for row in stream:
+                if row[11]=='SC':
+                    print ('the file is standard');
+                    return
+                elif row[11]=='OVL':
+                    print ('the file is detailed');
+                    return
+                else:
+                    print ('error file');
+                    return
+
+
