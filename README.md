@@ -13,7 +13,7 @@ pew new -d -r requirements.txt ENV
 
 #Usage
 ```bash
-pew in ENV python3 convert/convert.py test/standard.csv
+pew in ENV python3 main.py test/standard.csv
 ```
 This would output the data to the console as yml
 
