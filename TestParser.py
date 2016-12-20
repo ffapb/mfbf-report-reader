@@ -35,5 +35,11 @@ class TestParser(unittest.TestCase):
   def testDetailed(self):
     self.doCommon('detailed.yml', 'detailed.csv', 'detailed')
 
+  def testStr2float(self):
+    prs = Parser()
+    self.assertEquals( 100, prs._str2float('100'))
+    self.assertEquals(-100, prs._str2float('(100)'))
+    self.assertEquals(1000, prs._str2float('1000'))
+
 if __name__ == '__main__':
     unittest.main()

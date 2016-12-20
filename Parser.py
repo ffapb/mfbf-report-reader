@@ -1,15 +1,26 @@
-import csv
+import csv, re
 
 class Parser:
 
   def __s2r(self,stream):
     return csv.reader(stream,delimiter=',')
 
+  def _str2float(self,string):
+    # https://docs.python.org/2/howto/regex.html
+    p = re.compile('\((.*)\)')
+    m = p.match(string)
+    if m: return -1*float(m.group(1))
+    return float(string)
+
   def _standard(self, stream):
     stream.seek(0)
     data = {}
     for row in self.__s2r(stream):
-      data[row[31]]={'nav':row[41],'initial':row[42],'maintenance':row[43]}
+      data[row[31]]={
+        'nav':     self._str2float(row[41]),
+        'initial': self._str2float(row[42]),
+        'maintenance': self._str2float(row[43])
+      }
     meta={'asof': row[2]}
     return {'meta':meta, 'data': data}
     
@@ -19,12 +30,18 @@ class Parser:
     data= {}
     for row in self.__s2r(stream):
       if not row[30] in data:
-        data [row[30]]={'nav': row[38], 'securities': {} }
-      data[row[30]]['securities'][row[44]]={'initial':row[55],'maintenance':row[56]}
+        data [row[30]]={
+          'nav': self._str2float(row[38]),
+          'securities': {}
+        }
+      data[row[30]]['securities'][row[44]]={
+        'initial': self._str2float(row[55]),
+        'maintenance': self._str2float(row[56])
+      }
     
-    return data
-    meta={'as of:': meta[3]}
-    return meta
+    meta={'asof': row[2]}
+    return {'meta':meta, 'data': data}
+
   def _detect(self,stream):
     stream.seek(0)
     for row in self.__s2r(stream):
