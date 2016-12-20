@@ -1,16 +1,22 @@
 AA2129:
-  '33444':
-    initial: '23217.96'
-    maintenance: '15323.85'
-  WMOTORS:
-    initial: '25000'
-    maintenance: '25000'
+  nav: '73868.49'
+  securities:
+    '33444':
+      initial: '23217.96'
+      maintenance: '15323.85'
+    WMOTORS:
+      initial: '25000'
+      maintenance: '25000'
 AB3610:
-  LB ABH:
-    initial: '2622'
-    maintenance: '2622'
+  nav: '10798.59'
+  securities:
+    LB ABH:
+      initial: '2622'
+      maintenance: '2622'
 FA3662:
-  ? ''
-  : initial: '0'
-    maintenance: '0'
+  nav: '3.2'
+  securities:
+    ? ''
+    : initial: '0'
+      maintenance: '0'
 

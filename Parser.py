@@ -9,7 +9,7 @@ class Parser:
     stream.seek(0)
     data = {}
     for row in self.__s2r(stream):
-      data[row[31]]={'initial':row[42],'maintenance':row[43]}
+      data[row[31]]={'nav':row[41],'initial':row[42],'maintenance':row[43]}
 
     return data
 
@@ -18,8 +18,8 @@ class Parser:
     data= {}
     for row in self.__s2r(stream):
       if not row[30] in data:
-        data [row[30]]={}
-      data[row[30]][row[44]]={'initial':row[55],'maintenance':row[56]}
+        data [row[30]]={'nav': row[38], 'securities': {} }
+      data[row[30]]['securities'][row[44]]={'initial':row[55],'maintenance':row[56]}
 
     return data
 
