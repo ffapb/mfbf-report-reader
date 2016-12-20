@@ -1,8 +1,11 @@
-ABC123:
-  nav: '15312462.68'
-  initial: '76678.05'
-  maintenance: '76678.05'
-DEF123:
-  nav: (49.70)
-  initial: (49.70)
-  maintenance: (49.70)
+meta:
+  asof: 'As Of 07/12/2016'
+data:
+  ABC123:
+    nav: '15312462.68'
+    initial: '76678.05'
+    maintenance: '76678.05'
+  DEF123:
+    nav: (49.70)
+    initial: (49.70)
+    maintenance: (49.70)
