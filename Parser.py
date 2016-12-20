@@ -10,9 +10,10 @@ class Parser:
     data = {}
     for row in self.__s2r(stream):
       data[row[31]]={'nav':row[41],'initial':row[42],'maintenance':row[43]}
-
-    return data
-
+    meta={'asof': row[2]}
+    return {'meta':meta, 'data': data}
+    
+       
   def _detailed(self, stream):
     stream.seek(0)
     data= {}
@@ -20,9 +21,10 @@ class Parser:
       if not row[30] in data:
         data [row[30]]={'nav': row[38], 'securities': {} }
       data[row[30]]['securities'][row[44]]={'initial':row[55],'maintenance':row[56]}
-
+    
     return data
-
+    meta={'as of:': meta[3]}
+    return meta
   def _detect(self,stream):
     stream.seek(0)
     for row in self.__s2r(stream):
