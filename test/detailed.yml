@@ -8,20 +8,36 @@ data:
       '33444':
         margin.initial.excess: 23217.96
         margin.maintenance.excess: 15323.85
+        securities.positions.long: 71435.92
+        securities.positions.short: 0.0
+        options.positions.long: 0.0
+        options.positions.short: 0.0
       WMOTORS:
-        margin.initial.excess: 25000
-        margin.maintenance.excess: 25000
+        margin.initial.excess: 25000.0
+        margin.maintenance.excess: 25000.0
+        securities.positions.long: 71435.92
+        securities.positions.short: 0.0
+        options.positions.long: 0.0
+        options.positions.short: 0.0
   AB3610:
     nav: 10798.59
     cash: 8176.59
     securities:
       LB ABH:
-        margin.initial.excess: 2622
-        margin.maintenance.excess: 2622
+        margin.initial.excess: 2622.0
+        margin.maintenance.excess: 2622.0
+        securities.positions.long: 2622.0
+        securities.positions.short: 0.0
+        options.positions.long: 0.0
+        options.positions.short: 0.0
   FA3662:
     nav: 3.2
     cash: 3.2
     securities:
       ? ''
-      : margin.initial.excess: 0
-        margin.maintenance.excess: 0
+      : margin.initial.excess: 0.0
+        margin.maintenance.excess: 0.0
+        securities.positions.long: 0.0
+        securities.positions.short: 0.0
+        options.positions.long: 0.0
+        options.positions.short: 0.0

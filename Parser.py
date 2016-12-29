@@ -38,7 +38,11 @@ class Parser:
         }
       data[row[30]]['securities'][row[44]]={
         'margin.initial.excess': self._str2float(row[55]),
-        'margin.maintenance.excess': self._str2float(row[56])
+        'margin.maintenance.excess': self._str2float(row[56]),
+        'securities.positions.long': self._str2float(row[33]),
+        'securities.positions.short': self._str2float(row[34]),
+        'options.positions.long': self._str2float(row[35]),
+        'options.positions.short': self._str2float(row[36])
       }
     
     meta={'asof': row[2]}
