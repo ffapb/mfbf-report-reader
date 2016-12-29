@@ -12,6 +12,7 @@ data:
         securities.positions.short: 0.0
         options.positions.long: 0.0
         options.positions.short: 0.0
+        margin.type: PLAIN VANILLA
       WMOTORS:
         margin.initial.excess: 25000.0
         margin.maintenance.excess: 25000.0
@@ -19,6 +20,7 @@ data:
         securities.positions.short: 0.0
         options.positions.long: 0.0
         options.positions.short: 0.0
+        margin.type: PLAIN VANILLA
   AB3610:
     nav: 10798.59
     cash: 8176.59
@@ -30,6 +32,7 @@ data:
         securities.positions.short: 0.0
         options.positions.long: 0.0
         options.positions.short: 0.0
+        margin.type: PLAIN VANILLA
   FA3662:
     nav: 3.2
     cash: 3.2
@@ -41,3 +44,4 @@ data:
         securities.positions.short: 0.0
         options.positions.long: 0.0
         options.positions.short: 0.0
+        margin.type: ''
