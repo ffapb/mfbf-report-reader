@@ -18,8 +18,9 @@ class Parser:
     for row in self.__s2r(stream):
       data[row[31]]={
         'nav':     self._str2float(row[41]),
-        'initial': self._str2float(row[42]),
-        'maintenance': self._str2float(row[43])
+        'margin.initial.excess': self._str2float(row[42]),
+        'margin.maintenance.excess': self._str2float(row[43]),
+		'cash': self._str2float(row[40])
       }
     meta={'asof': row[2]}
     return {'meta':meta, 'data': data}
@@ -32,6 +33,7 @@ class Parser:
       if not row[30] in data:
         data [row[30]]={
           'nav': self._str2float(row[38]),
+		  'cash': self._str2float(row[37]),
           'securities': {}
         }
       data[row[30]]['securities'][row[44]]={
