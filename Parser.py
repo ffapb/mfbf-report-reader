@@ -33,12 +33,14 @@ class Parser:
       if not row[30] in data:
         data [row[30]]={
           'nav': self._str2float(row[38]),
-		  'cash': self._str2float(row[37]),
+		      'cash': self._str2float(row[37]),
+          'margin.initial.excess': self._str2float(row[39]),
+          'margin.maintenance.excess': self._str2float(row[40]),
           'securities': {}
         }
       data[row[30]]['securities'][row[44]]={
-        'margin.initial.excess': self._str2float(row[55]),
-        'margin.maintenance.excess': self._str2float(row[56]),
+        'margin.initial': self._str2float(row[55]),
+        'margin.maintenance': self._str2float(row[56]),
         'positions.securities.long': self._str2float(row[33]),
         'positions.securities.short': self._str2float(row[34]),
         'positions.options.long': self._str2float(row[35]),
