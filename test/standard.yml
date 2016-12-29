@@ -3,9 +3,11 @@ meta:
 data:
   ABC123:
     nav: 15312462.68
-    initial: 76678.05
-    maintenance: 76678.05
+    margin.initial.excess: 76678.05
+    margin.maintenance.excess: 76678.05
+    cash: 76678.05
   DEF123:
     nav: -49.70
-    initial: -49.70
-    maintenance: -49.70
+    margin.initial.excess: -49.70
+    margin.maintenance.excess: -49.70
+    cash: -49.70
