@@ -1,4 +1,5 @@
 import csv, yaml, sys, getopt, json
+import datetime
 from Parser import Parser
 
 def showHelp():
@@ -45,6 +46,11 @@ if __name__ == '__main__':
     if fileFormat=='json':
       print(json.dumps(data, indent=4, sort_keys=True))
     elif fileFormat=='yaml':
+      print(
+        "# Generated with mfbf-report-reader on %s"
+        %
+        datetime.datetime.now()
+      )
       print(yaml.dump(data, default_flow_style=False))
 
     #with open('accounts.yml', 'w') as outfile:

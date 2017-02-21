@@ -8,17 +8,16 @@ Using [pew](https://github.com/berdario/pew)
 sudo apt install python-pip
 pip install pew
 # append to ~/.bashrc : export PATH="$PATH:/home/shadi/.local/bin"
-pew new -d -r requirements.txt ENV
+pew new -d -r requirements.txt MFBF_REPORT_READER
 ```
 
 #Usage
 ```bash
-pew in ENV python3 main.py test/standard.csv
+pew in MFBF_REPORT_READER python main.py test/standard.csv
 ```
 This would output the data to the console as yml
 
 # Testing
 ```bash
-pew workon ENV
-python TestParser.py
+pew in MFBF_REPORT_READER python TestParser.py
 ```

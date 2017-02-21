@@ -1,13 +1,15 @@
-meta:
-  asof: 'As Of 07/12/2016'
+# Generated with mfbf-report-reader on 2017-02-21 18:46:08.604684
 data:
   ABC123:
-    nav: 15312462.68
+    cash: 76678.05
     margin.initial.excess: 76678.05
     margin.maintenance.excess: 76678.05
-    cash: 76678.05
+    nav: 15312462.68
   DEF123:
-    nav: -49.70
-    margin.initial.excess: -49.70
-    margin.maintenance.excess: -49.70
-    cash: -49.70
+    cash: -49.7
+    margin.initial.excess: -49.7
+    margin.maintenance.excess: -49.7
+    nav: -49.7
+meta:
+  asof: As Of 07/12/2016
+

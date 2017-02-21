@@ -9,25 +9,15 @@ class TestParser(unittest.TestCase):
 
   def doCommon(self, expectedFn, inputFn, expectedFormat):
     expectedFn = os.path.join(ROOT,"test",expectedFn)
-    inputFn = os.path.join(ROOT,"test",inputFn)
+    inputFn    = os.path.join(ROOT,"test",inputFn   )
 
     with open(expectedFn, 'r') as expectedStream:
       expectedContent = yaml.load(expectedStream)
 
       with open(inputFn) as inputStream:
         prs = Parser()
-        actualFormat = prs._detect(inputStream)
-        self.assertEquals(expectedFormat,  actualFormat  )
-
-        actualContent = None
-        if expectedFormat=='standard':
-          actualContent = prs._standard(inputStream)
-        elif expectedFormat=='detailed':
-          actualContent = prs._detailed(inputStream)
-
-        self.assertEquals(expectedContent, actualContent)
-
-        self.assertEquals(expectedContent, prs.parse(inputStream))
+        self.assertEquals(expectedFormat,  prs._detect(inputStream)  )
+        self.assertEquals(expectedContent, prs.parse(  inputStream)  )
 
   def testStandard(self):
     self.doCommon('standard.yml', 'standard.csv', 'standard')

@@ -1,53 +1,55 @@
-meta:
-  asof: 'As Of 09/12/2016'
+# Generated with mfbf-report-reader on 2017-02-21 18:47:00.948123
 data:
   AA2129:
-    nav: 73868.49
     cash: 2432.57
     margin.initial.excess: 25650.53
     margin.maintenance.excess: 33544.64
+    nav: 73868.49
     securities:
       '33444':
         margin.initial: 23217.96
         margin.maintenance: 15323.85
-        positions.securities.long: 71435.92
-        positions.securities.short: 0.0
+        margin.type: PLAIN VANILLA
         positions.options.long: 0.0
         positions.options.short: 0.0
-        margin.type: PLAIN VANILLA
+        positions.securities.long: 71435.92
+        positions.securities.short: 0.0
       WMOTORS:
         margin.initial: 25000.0
         margin.maintenance: 25000.0
-        positions.securities.long: 71435.92
-        positions.securities.short: 0.0
+        margin.type: PLAIN VANILLA
         positions.options.long: 0.0
         positions.options.short: 0.0
-        margin.type: PLAIN VANILLA
+        positions.securities.long: 71435.92
+        positions.securities.short: 0.0
   AB3610:
-    nav: 10798.59
     cash: 8176.59
     margin.initial.excess: 8176.59
     margin.maintenance.excess: 8176.59
+    nav: 10798.59
     securities:
       LB ABH:
         margin.initial: 2622.0
         margin.maintenance: 2622.0
-        positions.securities.long: 2622.0
-        positions.securities.short: 0.0
+        margin.type: PLAIN VANILLA
         positions.options.long: 0.0
         positions.options.short: 0.0
-        margin.type: PLAIN VANILLA
+        positions.securities.long: 2622.0
+        positions.securities.short: 0.0
   FA3662:
-    nav: 3.2
     cash: 3.2
     margin.initial.excess: 3.2
     margin.maintenance.excess: 3.2
+    nav: 3.2
     securities:
       ? ''
       : margin.initial: 0.0
         margin.maintenance: 0.0
-        positions.securities.long: 0.0
-        positions.securities.short: 0.0
+        margin.type: ''
         positions.options.long: 0.0
         positions.options.short: 0.0
-        margin.type: ''
+        positions.securities.long: 0.0
+        positions.securities.short: 0.0
+meta:
+  asof: As Of 09/12/2016
+
