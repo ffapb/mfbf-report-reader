@@ -22,7 +22,7 @@ class Parser:
         'margin.maintenance.excess': self._str2float(row[43]),
 		'cash': self._str2float(row[40])
       }
-    meta={'asof': row[2]}
+    meta={'asof': row[2], 'exported': row[1]}
     return {'meta':meta, 'data': data}
     
        
@@ -48,7 +48,7 @@ class Parser:
         'margin.type': row[45]
       }
     
-    meta={'asof': row[2]}
+    meta={'asof': row[2],'exported': row[1]}
     return {'meta':meta, 'data': data}
 
   def _detect(self,stream):
